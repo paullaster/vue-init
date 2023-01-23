@@ -60,7 +60,13 @@
         });
         app.component('custom-form-input', {
             template: `
-                
+            <div class="form-group">
+                <label>
+                    {{label}}
+                    <input type="text"/>
+                </label>
+                <input type="text"/>
+            </div>
             `,
         })
         app.mount("#app");
