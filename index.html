@@ -44,7 +44,7 @@
         });
         app.component( 'login-form', {
             template: `
-                <form>
+                <form @submit="handLoginFormSubmit">
                     <custom-form-input v-model="email" :label="emailLabel" :type="typeEmail"/>
                     <custom-form-input v-model="password" :label="passwordLabel" type="password"/>
                     <button>Login</button
@@ -61,7 +61,8 @@
                 }
             },
             methods: {
-                handLoginFormSubmit (){
+                handLoginFormSubmit (e){
+                    e.preventDefault();
                     console.log(this.email, this.password);
                 }
             },
