@@ -84,7 +84,14 @@
                 }
             },
             computed: {
-                inputValue:
+                inputValue:{
+                    get(){
+                        console.log(this.inputValue)
+                    },
+                    set(value){
+
+                    },
+                }
             },
             methods: {
                 logInputValue: () => {
