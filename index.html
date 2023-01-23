@@ -45,8 +45,8 @@
         app.component( 'login-form', {
             template: `
                 <form>
-                    <custom-form-input :label="emailLabel" type="typeEmail"/>
-                    <custom-form-input :label="passwordLabel" type="typePassword"/>
+                    <custom-form-input :label="emailLabel" :type="typeEmail"/>
+                    <custom-form-input :label="passwordLabel" :type="typePassword"/>
                 </form>
             `,
             data(){
