@@ -36,9 +36,6 @@
             isVisible: true
           };
         },
-        updated: function () {
-            console.log("Updated");
-        },
         methods: {
           greet() {
             console.log(this.greeting);
@@ -46,6 +43,9 @@
           toggleBox: function () {
             this.isVisible = !this.isVisible;
           }
+        },
+        updated: function () {
+            console.log("Updated");
         }
       });
       app.component("test-box", {
