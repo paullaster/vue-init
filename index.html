@@ -46,7 +46,6 @@
         app.component( 'login-form', {
             template: `
                 <form @submit="handLoginFormSubmit">
-                    <p v-for="agend in testLoop" key="agend"> {{agend}}</p>
                     <custom-form-input v-model="email" :label="emailLabel" :type="typeEmail"/>
                     <custom-form-input v-model="password" :label="passwordLabel" type="password"/>
                     <button>Login</button
@@ -55,10 +54,9 @@
             data(){
                 return{
                     testLoop: [
-                    'Agenda 1',
-                    'Agenda 2',
-                    'Agenda 3',
-                    'Agenda 4'
+                    {
+                        
+                    }
                     ],
                     email:'',
                     password:'',
