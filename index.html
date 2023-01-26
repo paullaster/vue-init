@@ -47,10 +47,11 @@
             template: `
                 <form @submit="handLoginFormSubmit">
                     <custom-form-input 
-                    v-for="input in inputs"
+                    v-for="(input, i) in inputs"
                     v-model="input.value"
                     :label="input.label"
                     :type="input.type"
+                    key="input.i"
                     />
                     
                     <button>Login</button
