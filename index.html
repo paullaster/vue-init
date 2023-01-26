@@ -93,11 +93,11 @@
             <div class="form-group">
                 <label>
                     {{label}}
-                    <input type="text" v-model="inputValue"/>
+                    <input :type="type" v-model="inputValue"/>
                 </label>
             </div>
             `,
-            props: ['label', 'modelValue'],
+            props: ['label', "type", 'modelValue'],
             //data: ()=> {
             //    return {
             //        inputValue: ''
