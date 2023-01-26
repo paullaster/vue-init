@@ -30,7 +30,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         const app = Vue.createApp({
-            data: () => {
+            data: function() {
                 return {
                     greeting: "Hello, world from Vue!",
                     isVisible: true
@@ -40,7 +40,7 @@
                 greet () {
                     console.log(this.greeting);
                 },
-                toggleBox: () => {
+                toggleBox: function(){
                     console.log (this.isVisible)
                   this.isVisible = !this.isVisible;
                   console.log (this.isVisible)
