@@ -22,7 +22,6 @@
         Can be shortened as @click="value" -->
         <!-- <input @keyup.enter="greet" v-model="greeting"> -->
         <button @click="toggleBox">Toggle Box</button>
-        <div v-if="isVisible" class="box"></div>
         <!-- <div>
             <login-form/>
         </div> -->
@@ -48,7 +47,9 @@
             }
         });
         app.component ("test-box", {
-            template: ``,
+            template: `
+                <div v-if="isVisible" class="box"></div>
+            `,
         })
         app.component( 'login-form', {
             template: `
