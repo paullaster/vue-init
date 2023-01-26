@@ -21,7 +21,9 @@
         v-on:click, v-on:keyup="value"
         Can be shortened as @click="value" -->
         <input @keyup.enter="greet" v-model="greeting">
-        <div v-if="isVisible" class="box"></div>
+        <button>
+            <div v-if="isVisible" class="box"></div>
+        </button>
 
         <div>
             <login-form/>
