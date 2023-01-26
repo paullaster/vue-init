@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VUE INIT</title>
     <style>
-        .box {
-            width: 250px;
-            height: 250px;
-            background-color: rebeccapurple;
-        }
+      .box {
+        width: 250px;
+        height: 250px;
+        background-color: rebeccapurple;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <!-- {{greeting}} -->
-        <!-- Two way data binding -->
-        <!-- Events:
+      <!-- {{greeting}} -->
+      <!-- Two way data binding -->
+      <!-- Events:
         v-on:click, v-on:keyup="value"
         Can be shortened as @click="value" -->
-        <!-- <input @keyup.enter="greet" v-model="greeting"> -->
-        <button @click="toggleBox">Toggle Box</button>
-        <test-box v-if="isVisible"/>
-        <!-- <div>
+      <!-- <input @keyup.enter="greet" v-model="greeting"> -->
+      <button @click="toggleBox">Toggle Box</button>
+      <test-box v-if="isVisible" />
+      <!-- <div>
             <login-form/>
         </div> -->
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        const app = Vue.createApp({
-            data: function() {
-                return {
-                    greeting: "Hello, world from Vue!",
-                    isVisible: true
-                }
-            },
-            methods: {
-                greet () {
-                    console.log(this.greeting);
-                },
-                toggleBox: function(){
-                  this.isVisible = !this.isVisible;
-                }
-            }
-        });
-        app.component ("test-box", {
-            template: `
+      const app = Vue.createApp({
+        data: function () {
+          return {
+            greeting: "Hello, world from Vue!",
+            isVisible: true
+          };
+        },
+        methods: {
+          greet() {
+            console.log(this.greeting);
+          },
+          toggleBox: function () {
+            this.isVisible = !this.isVisible;
+          }
+        }
+      });
+      app.component("test-box", {
+        template: `
                 <div class="box"></div>
             `,
-                created() {
-                    console.log ("created")
-                },
-                mounted() {
-                    console.log("mounted")
-                },
-                unmounted() {
-                    console.log("unmounted")
-                },
-            
-        })
-        app.component( 'login-form', {
-            template: `
+        created() {
+          console.log("created");
+        },
+        mounted() {
+          console.log("mounted");
+        },
+        unmounted() {
+          console.log("unmounted");
+        }
+      });
+      app.component("login-form", {
+        template: `
                 <form @submit="handLoginFormSubmit">
                     <custom-form-input 
                     v-for="(input, i) in inputs"
@@ -74,40 +73,38 @@
                     <button>Login</button
                 </form>
             `,
-            data(){
-                return{
-                    inputs: [
-                    {
-                        label: "Email",
-                        value:'',
-                        type: 'email'
-                    },
-                    {
-                        label: "Password",
-                        value:'',
-                        type: 'password'
-                    }
-                    ],
-                    email:'',
-                    password:'',
-                    typeEmail: 'email',
-                    typePassword: 'password',
-                    emailLabel: 'Username',
-                    passwordLabel: 'Password',
-                }
-            },
-            methods: {
-                handLoginFormSubmit (e){
-                    e.preventDefault();
-                    console.log(this.inputs[0].value, this.inputs[1].value);
-                }
-            },
-            component: [
-            'custom-form-input'
-            ]
-        });
-        app.component('custom-form-input', {
-            template: `
+        data() {
+          return {
+            inputs: [
+              {
+                label: "Email",
+                value: "",
+                type: "email"
+              },
+              {
+                label: "Password",
+                value: "",
+                type: "password"
+              }
+            ],
+            email: "",
+            password: "",
+            typeEmail: "email",
+            typePassword: "password",
+            emailLabel: "Username",
+            passwordLabel: "Password"
+          };
+        },
+        methods: {
+          handLoginFormSubmit(e) {
+            e.preventDefault();
+            console.log(this.inputs[0].value, this.inputs[1].value);
+          }
+        },
+        component: ["custom-form-input"]
+      });
+      app.component("custom-form-input", {
+        template: `
             <div class="form-group">
                 <label>
                     {{label}}
@@ -115,29 +112,29 @@
                 </label>
             </div>
             `,
-            props: ['label', "type", 'modelValue'],
-            //data: ()=> {
-            //    return {
-            //        inputValue: ''
-            //    }
-            //},
-            computed: {
-                inputValue:{
-                    get(){
-                        return this.modelValue;
-                    },
-                    set(value){
-                        this.$emit("update:modelValue", value);
-                    },
-                }
+        props: ["label", "type", "modelValue"],
+        //data: ()=> {
+        //    return {
+        //        inputValue: ''
+        //    }
+        //},
+        computed: {
+          inputValue: {
+            get() {
+              return this.modelValue;
             },
-            methods: {
-                logInputValue: () => {
-                    console.log (this.inputValue);
-                }
+            set(value) {
+              this.$emit("update:modelValue", value);
             }
-        })
-        app.mount("#app");
+          }
+        },
+        methods: {
+          logInputValue: () => {
+            console.log(this.inputValue);
+          }
+        }
+      });
+      app.mount("#app");
     </script>
-</body>
+  </body>
 </html>
