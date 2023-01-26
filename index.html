@@ -47,6 +47,8 @@
             template: `
                 <form @submit="handLoginFormSubmit">
                     <custom-form-input 
+                    v-for="input in inputs"
+                    v-model="input.value"
                     />
                     
                     <button>Login</button
